@@ -1,0 +1,70 @@
+{% extends "layout.html" %} {% block body %}
+
+<!-- Landing Page -->
+<header class="header" id="home">
+  <div class="header-content">
+    <div class="text-container">
+      <h1>Your Success Starts Here! {{user}}</h1>
+      <p class="subtext">
+        Join us to achieve your goals with our expert guidance.
+      </p>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
+    <div class="image-container">
+      <img src="https://via.placeholder.com/500x400" alt="Success Image" />
+    </div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <h2 class="headerText">About Us</h2>
+  <p class="subtext">We provide the best services to help you succeed.</p>
+
+  <div class="card-container">
+    <div class="card">
+      <img src="https://via.placeholder.com/150" alt="Service Image" />
+      <div class="card-content">
+        <h3 class="subtext">Service Title 1</h3>
+        <p class="card-subtext">
+          Brief description of Service 1.
+          <span class="likes">Likes: 50</span>
+        </p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/150" alt="Service Image" />
+      <div class="card-content">
+        <h3 class="subtext">Service Title 2</h3>
+        <p class="card-subtext">
+          Brief description of Service 2.
+          <span class="likes">Likes: 60</span>
+        </p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/150" alt="Service Image" />
+      <div class="card-content">
+        <h3 class="subtext">Service Title 3</h3>
+        <p class="card-subtext">
+          Brief description of Service 3.
+          <span class="likes">Likes: 30</span>
+        </p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <h2>Our Services</h2>
+  <p>We offer a variety of services tailored to your needs.</p>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>Get in touch with us today!</p>
+</section>
+
+{% endblock body %}
