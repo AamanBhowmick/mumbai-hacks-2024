@@ -21,6 +21,12 @@ def home():
     user = session.get('user')
     return render_template("index.html", user = user)
 
+@app.route("/upload")
+def upload():
+
+    return render_template("upload.html")
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == 'POST':
