@@ -247,12 +247,7 @@ section {
 }
 
 .about {
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(to bottom,
-            #0f0c29,
-            #0f0c29);
-    overflow: hidden;
+    margin-top: 80px;
 }
 
 .subtext {
@@ -263,8 +258,9 @@ section {
 
 .headerText {
     margin: 10px 0 40px;
-    font-size: 18px;
+    font-size: 2.5em;
     color: var(--white);
+    font-weight: 800;
 }
 
 .card-container {

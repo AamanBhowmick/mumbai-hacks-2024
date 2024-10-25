@@ -1,0 +1,145 @@
+{% extends "layout.html" %} {% block body %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Your File</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/upload.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container cont-upload" id="container-upload">
+      <header>
+        <section class="window--buttons">
+          <div class="window__close"></div>
+          <div class="window__minimize"></div>
+          <div class="window__maximize"></div>
+        </section>
+      </header>
+
+      <div class="content">
+        <div class="ideas">
+          <div class="idea">
+            <p>MASTER YOUR MAC</p>
+            <h1>
+              Make a great<br />
+              handoff
+            </h1>
+            <p>Work seamlessly across devices</p>
+          </div>
+
+          <div class="idea">
+            <p>GET STARTED</p>
+            <h1>Apps optimized for mac with M1</h1>
+            <p>Work seamlessly across devices</p>
+          </div>
+        </div>
+
+        <section class="updates">
+          <h1>Updates</h1>
+
+          <div class="update update-1">
+            <div class="updt-left">
+              <img
+                src="https://img.icons8.com/color/452/microsoft-powerpoint-2019.png"
+                alt="powerpoint icon"
+              />
+              <h1>Microsoft Powerpoint</h1>
+            </div>
+            <div class="buttons">
+              <a href="https://bit.ly/3gdGvT8" target="_warning">
+                <button>Update</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="update">
+            <div class="updt-left">
+              <img
+                src="https://img.icons8.com/color/452/microsoft-word-2019--v2.png"
+                alt="word icon"
+              />
+              <h1>Microsoft Word</h1>
+            </div>
+            <div class="buttons">
+              <button style="color: lime; cursor: default">Updated</button>
+            </div>
+          </div>
+
+          <div class="update">
+            <div class="updt-left">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg/788px-Adobe_Photoshop_Lightroom_CC_logo.svg.png"
+                alt="lightroom icon"
+              />
+              <h1>Adobe Lightroom</h1>
+            </div>
+            <div class="buttons">
+              <a href="https://bit.ly/3gdGvT8" target="_warning">
+                <button>Update</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="update">
+            <div class="updt-left">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/5/56/Xcode_14_icon.png"
+                alt="xcode icon"
+              />
+              <h1>Xcode</h1>
+            </div>
+            <div class="buttons">
+              <a href="https://bit.ly/3gdGvT8" target="_warning">
+                <button>Update</button>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="trending">
+          <h1>Trending</h1>
+          <div class="grid">
+            <span class="grid__app">
+              <h1>Kindle</h1>
+              <button>GET</button>
+            </span>
+            <span class="grid__app">
+              <h1>Slac</h1>
+              <button>GET</button>
+            </span>
+            <span class="grid__app">
+              <h1>Magnet</h1>
+              <button>₹699</button>
+            </span>
+            <span class="grid__app">
+              <h1>CotEditor</h1>
+              <button>GET</button>
+            </span>
+            <span class="grid__app margin">
+              <h1>Twitter</h1>
+              <button>GET</button>
+            </span>
+            <span class="grid__app margin">
+              <h1>Notability</h1>
+              <button>₹799</button>
+            </span>
+            <span class="grid__app margin">
+              <h1>NDTV</h1>
+              <button>GET</button>
+            </span>
+            <span class="grid__app margin">
+              <h1>Rummy</h1>
+              <button>₹179</button>
+            </span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
+
+{% endblock body %}

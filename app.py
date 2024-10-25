@@ -1,8 +1,9 @@
 from flask import Flask, render_template, redirect, request, jsonify, session
-from firebase import firebase
+
 import firebase_admin
 from firebase_admin import credentials, firestore
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from dotenv import load_dotenv
 load_dotenv()
 import os
@@ -25,6 +26,26 @@ def layout():
 def home():
     user = session.get('user')
     return render_template("index.html", user = user)
+
+app.config['UPLOAD_FOLDER'] = 'uploads/'  # Folder to store uploaded files
+
+@app.route("/upload", methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            return 'No file part'
+        
+        file = request.files['file']
+        if file.filename == '':
+            return 'No selected file'
+        
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return 'File successfully uploaded'
+    
+    return render_template("upload.html")
+
 
 @app.route("/about")
 def about():
