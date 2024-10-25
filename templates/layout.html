@@ -3,24 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>SceneSplit</title>
     <link rel="stylesheet" href={{ url_for('static', filename='css/style.css')
     }} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/d0c5f1e210.js"
       crossorigin="anonymous"
     ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Courier+Prime:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    {% block css %}{% endblock css %}
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-container">
-        <h1 class="logo"><a href="/">MyWebsite</a></h1>
+        <h1 class="logo">
+          <a href="/">
+            <img src={{ url_for('static', filename='images/logo.png')}} alt=""
+            class="logo-img">
+          </a>
+        </h1>
         <ul class="nav-menu" id="nav-menu">
           <li><a href="/">Home</a></li>
           <li><a href="/upload">Upload</a></li>
+          <li><a href="/history">History</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/contact-us">Contact</a></li>
           {% if user %}
           <li><a href="/logout">Logout</a></li>
           {% else %}
@@ -36,10 +57,7 @@
     </nav>
 
     <div class="bg-img">
-      <img
-        src="https://cdn.prod.website-files.com/6009ec8cda7f305645c9d91b/620bd6d655f2044afa28bff4_glassmorphism.jpeg"
-        alt="bg-img"
-      />
+      <img src="https://wallpapercave.com/wp/wp6397609.jpg" alt="bg-img" />
     </div>
 
     {% block body %}{% endblock body %}
@@ -71,5 +89,6 @@
         </div>
       </div>
     </footer>
+    {% block js %}{% endblock js %}
   </body>
 </html>

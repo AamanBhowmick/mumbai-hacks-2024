@@ -52,9 +52,15 @@ def about():
     user = session.get('user')
     return render_template("about.html", user = user)
 
+@app.route("/contact-us")
+def contactus():
+    # user = session.get('user')
+    return render_template("contact-us.html",)
 
-
-
+@app.route("/history")
+def history():
+    # user = session.get('user')
+    return render_template("history.html",)
 
 
 # Authentication

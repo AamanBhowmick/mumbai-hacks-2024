@@ -5,7 +5,9 @@
     --white-rgb: 255, 255, 255;
     --black-rgb: 18, 18, 18;
 
-    --primary-text: #ff6700;
+    --primary-text: #260656;
+
+    --button-color: #ff5722;
 
     --background-glass-1: rgba(255, 255, 255, 0.1);
     --background-glass-2: rgba(255, 255, 255, 0.2);
@@ -20,7 +22,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", serif;
     overflow-x: hidden;
 }
 
@@ -55,8 +57,11 @@ a {
 }
 
 .logo {
-    font-size: 24px;
     margin-right: auto;
+}
+
+.logo-img {
+    width: 300px;
 }
 
 .nav-menu {
@@ -136,6 +141,7 @@ a {
 .cont-second {
     background: none;
     padding: 20px;
+    backdrop-filter: none;
 }
 
 .cont-third {
@@ -168,7 +174,8 @@ a {
     font-size: 1.1em;
     color: var(--primary-text);
     font-weight: 800;
-    -webkit-text-stroke: 1px var(--white);
+    /* -webkit-text-stroke: 1px var(--white); */
+    text-shadow: 2px 2px var(--white);
 }
 
 .subtext {
@@ -340,7 +347,7 @@ section {
 
 /* Button styles */
 .btn {
-    background: #ff5722;
+    background: var(--button-color);
     color: var(--white);
     padding: 12px 24px;
     text-decoration: none;
@@ -354,12 +361,11 @@ section {
     background: #e64a19;
 }
 
-
-
 /* Services Page */
 
 .services {
     backdrop-filter: var(--backdrop-filter-15);
+    background: var(--background-glass-2);
 }
 
 .service-wrap {
@@ -378,7 +384,7 @@ section {
     height: 450px;
     object-fit: cover;
     border-radius: 20px;
-    border: 1px solid var(--white)
+    border: 1px solid var(--white);
 }
 
 .service-content {
@@ -386,11 +392,13 @@ section {
 }
 
 .title {
-    font-size: 3em;
+    font-size: 2.4em;
     color: var(--primary-text);
-    -webkit-text-stroke: 1px var(--white);
+    /* -webkit-text-stroke: 1px var(--white); */
+    text-shadow: 2px 2px var(--white);
     font-weight: 800;
     text-align: left;
+    text-transform: uppercase;
 }
 
 .service-points {
@@ -426,7 +434,7 @@ section {
 }
 
 .choose-icon {
-    color: var(--primary-text);
+    color: var(--button-color);
     font-size: 2em;
     -webkit-text-stroke: 1px var(--white);
 }
@@ -458,7 +466,8 @@ section {
     font-size: 2.5em;
     font-weight: 800;
     color: var(--primary-text);
-    -webkit-text-stroke: 1px var(--white);
+    /* -webkit-text-stroke: 1px var(--white); */
+    text-shadow: 2px 2px var(--white);
 }
 
 .footer-desc {
@@ -484,4 +493,267 @@ section {
     gap: 20px;
     font-size: 2.2em;
     color: var(--white);
+}
+
+/* CONTACT US */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    margin-top: 5%;
+}
+
+.main-container,
+button,
+input {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.form-background {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.form-container {
+    flex: 0 1 700px;
+    margin: auto;
+    padding: 10px;
+}
+
+.form-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.header-left {
+    margin-right: auto;
+}
+
+.header-button {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.button-close {
+    background: rgba(237, 28, 111, 0.7);
+}
+
+.button-maximize {
+    background: rgba(232, 233, 37, 0.7);
+}
+
+.button-minimize {
+    background: rgba(116, 197, 79, 0.7);
+}
+
+.header-right {
+    display: flex;
+}
+
+.header-ellipsis {
+    width: 3px;
+    height: 3px;
+    margin-left: 2px;
+    border-radius: 8px;
+    background: rgba(153, 153, 153, 0.7);
+}
+
+.form-body {
+    display: flex;
+}
+
+.form-item {
+    flex: 1;
+    padding: 50px;
+}
+
+.form-item.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 26px;
+}
+
+.form-title:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 25px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.contact-info {
+    margin-top: auto;
+    font-size: 8px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.form-field-message {
+    margin-top: 40px;
+}
+
+.form-buttons {
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input-field:focus {
+    border-bottom-color: rgba(255, 255, 255, 0.9);
+}
+
+.form-buttons {
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.form-action-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    /* Blurring effect */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Light border */
+}
+
+/* Cancel Button */
+.form-action-button.cancel {
+    background: rgba(255, 0, 0, 0.2);
+    /* Light red */
+    color: #fff;
+}
+
+.form-action-button.cancel:hover {
+    background: rgba(255, 0, 0, 0.4);
+    /* Darker red on hover */
+}
+
+/* Send Button */
+.form-action-button.send {
+    background: rgba(0, 128, 0, 0.2);
+    /* Light green */
+    color: #fff;
+}
+
+.form-action-button.send:hover {
+    background: rgba(0, 128, 0, 0.4);
+    /* Darker green on hover */
+}
+
+.footer-credits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.credits-link {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.credits-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+@media screen and (max-width: 520px) {
+    .form-body {
+        flex-direction: column;
+    }
+
+    .form-item.left {
+        margin-bottom: 30px;
+    }
+
+    .form-title {
+        flex-direction: row;
+    }
+
+    .form-title span {
+        margin-right: 12px;
+    }
+
+    .form-title:after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form-body {
+        padding: 40px;
+    }
+
+    .form-item {
+        padding: 0;
+    }
 }
