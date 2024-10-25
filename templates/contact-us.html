@@ -1,0 +1,63 @@
+{% extends "layout.html" %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/contact-us.css') }}"
+/>
+{% endblock css %} {% block body %}
+
+<div class="main-container">
+  <div class="form-background">
+    <div class="form-container">
+      <div class="form-card">
+        <div class="card-header">
+          <div class="header-left">
+            <div class="header-button button-close"></div>
+            <div class="header-button button-maximize"></div>
+            <div class="header-button button-minimize"></div>
+          </div>
+          <div class="header-right">
+            <div class="header-ellipsis"></div>
+            <div class="header-ellipsis"></div>
+            <div class="header-ellipsis"></div>
+          </div>
+        </div>
+        <div class="form-body">
+          <div class="form-item left">
+            <div class="form-title">
+              <span>CONTACT</span>
+              <span>US</span>
+            </div>
+            <div class="contact-info">CONTACT INFO : +62 81 314 928 595</div>
+          </div>
+          <div class="form-item">
+            <div class="form-field">
+              <input
+                class="input-field"
+                placeholder="NAME"
+                value="Saurabh Jadhav"
+              />
+            </div>
+            <div class="form-field">
+              <input class="input-field" placeholder="EMAIL" />
+            </div>
+            <div class="form-field">
+              <input class="input-field" placeholder="CONTACT NO" />
+            </div>
+            <div class="form-field form-field-message">
+              <input class="input-field" placeholder="MESSAGE" />
+            </div>
+            <div class="form-field form-buttons">
+              <button class="form-action-button cancel">CANCEL</button>
+              <button class="form-action-button send">SEND</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="script.js"></script>
+
+{% endblock body %}
