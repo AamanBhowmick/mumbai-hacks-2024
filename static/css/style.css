@@ -1,3 +1,18 @@
+:root {
+    --white: #fff;
+    --black: #121212;
+
+    --white-rgb: 255, 255, 255;
+    --black-rgb: 18, 18, 18;
+
+    --primary-text: #ff6700;
+
+    --background-glass-1: rgba(255, 255, 255, 0.1);
+    --background-glass-2: rgba(255, 255, 255, 0.2);
+    --backdrop-filter-10: blur(10px);
+    --backdrop-filter-15: blur(15px);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,16 +21,20 @@
 
 body {
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white);
 }
 
 /* Navbar styles */
 .navbar {
-    background: rgba(255, 255, 255, 0.1);
-    /* Semi-transparent background */
-    backdrop-filter: blur(10px);
-    /* Blur effect for glassmorphism */
-    color: #fff;
-    padding: 10px 20px;
+    background: var(--background-glass-1);
+    backdrop-filter: var(--backdrop-filter-15);
+    color: var(--white);
+    padding: 50px 20px;
     position: fixed;
     width: 100%;
     height: 10%;
@@ -24,11 +43,7 @@ body {
     z-index: 1000;
     display: flex;
     justify-content: center;
-    /* Center align navbar items */
-    border-radius: 10px;
-    /* Rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    /* Shadow effect */
 }
 
 .navbar-container {
@@ -36,15 +51,12 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    /* Full width for better alignment */
     max-width: 1200px;
-    /* Optional: to limit max width */
 }
 
 .logo {
     font-size: 24px;
     margin-right: auto;
-    /* Align logo to the left */
 }
 
 .nav-menu {
@@ -57,7 +69,7 @@ body {
 }
 
 .nav-menu a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -70,58 +82,106 @@ body {
 .bar {
     height: 4px;
     width: 25px;
-    background: #fff;
+    background: var(--white);
     margin: 3px 0;
 }
 
 /* Header styles */
 .header {
+    margin-top: 50px;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: var(--white);
     position: relative;
     overflow: hidden;
-    background: #0f0c29;
-    /* fallback for old browsers */
+    /* background: #0f0c29;
     background: -webkit-linear-gradient(to right,
             #24243e,
             #302b63,
             #0f0c29);
-    /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right,
             #24243e,
             #302b63,
-            #0f0c29);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    backdrop-filter: blur(10px);
-    /* Blur effect for glassmorphism */
+            #0f0c29); */
+    /* backdrop-filter: var(--backdrop-filter-10); */
+}
+
+.bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bg-img img {
+    width: 100vw;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.container {
+    margin: auto;
+    max-width: 1200px;
+    padding: 50px;
+    border-radius: 20px;
+    background: var(--background-glass-2);
+    backdrop-filter: var(--backdrop-filter-10);
+}
+
+.cont-second {
+    background: none;
+    padding: 20px;
+}
+
+.cont-third {
+    background: none;
+    padding: 20px;
+    backdrop-filter: none;
 }
 
 .header-content {
     display: flex;
     justify-content: center;
-    /* Center content */
     align-items: center;
-    width: 90%;
+    gap: 50px;
+    width: 100%;
+    margin: auto;
 }
 
 .text-container {
-    flex: 1;
-    max-width: 500px;
+    max-width: 650px;
     padding: 20px;
     text-align: left;
     /* Center align text */
 }
 
+.hero-title {
+    font-size: 2.4em;
+}
+
+.hero-title span {
+    font-size: 1.1em;
+    color: var(--primary-text);
+    font-weight: 800;
+    -webkit-text-stroke: 1px var(--white);
+}
+
 .subtext {
     margin: 10px 0;
+    color: var(--white);
+    opacity: 80%;
+    line-height: 1.3em;
 }
 
 .btn {
-    background: #ff5722;
-    color: #fff;
+    background: var(--primary-text);
+    color: var(--white);
+    border: 1px solid var(--white);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -133,10 +193,11 @@ body {
     flex: 1;
     display: flex;
     justify-content: center;
+    max-width: 550px;
 }
 
 .image-container img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-radius: 10px;
 }
@@ -183,168 +244,248 @@ section {
 /* Section styles */
 section {
     padding: 60px 20px;
-    text-align: center;
 }
 
-.about,
-.services,
-.contact {
+.about {
+    width: 100vw;
+    height: 100vh;
     background: linear-gradient(to bottom,
             #0f0c29,
             #0f0c29);
-    /* Gradient background from top to bottom for sections */
-    /* margin: 20px 0; */
+    overflow: hidden;
 }
 
-/* About Section Specific Styles */
 .subtext {
     margin: 10px 0 40px;
-    /* Added bottom margin for spacing */
     font-size: 18px;
-    /* Increased font size */
-    color: #fff;
+    color: var(--white);
 }
 
 .headerText {
     margin: 10px 0 40px;
-    /* Added bottom margin for spacing */
     font-size: 18px;
-    /* Increased font size */
-    color: #fff;
+    color: var(--white);
 }
 
 .card-container {
     display: flex;
     justify-content: center;
-    /* Center the cards */
     flex-wrap: wrap;
-    /* Allow cards to wrap on small screens */
     gap: 20px;
-    /* Spacing between cards */
 }
 
 .card {
-    background: #fff;
-    /* Card background */
+    background: var(--white);
     border-radius: 10px;
-    /* Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* Shadow effect */
     overflow: hidden;
-    /* Prevent content overflow */
     max-width: 300px;
-    /* Max width for cards */
     text-align: left;
-    /* Align text to the left */
     transition: transform 0.3s;
-    /* Smooth transition for hover effect */
 }
 
 .card:hover {
     transform: scale(1.05);
-    /* Slightly scale card on hover */
 }
 
 .card h3 {
     margin: 10px 0;
-    /* Spacing around title */
 }
 
 .card-subtext {
     margin: 10px 0;
-    /* Spacing around subtext */
-    color: #fff;
+    color: var(--white);
 }
 
 /* Card styles */
 .card {
-    background: rgba(255,
-            255,
-            255,
-            0.2);
-    /* Semi-transparent white for glassmorphism */
+    background: var(--background-glass-2);
     border-radius: 10px;
-    /* Rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* Shadow effect */
     overflow: hidden;
-    /* Prevent content overflow */
     max-width: 300px;
-    /* Max width for cards */
     text-align: left;
-    /* Align text to the left */
     display: flex;
-    /* Enable flexbox */
     flex-direction: column;
-    /* Stack elements vertically */
     position: relative;
-    /* Positioning context for the button */
-    backdrop-filter: blur(15px);
-    /* Blur effect for glassmorphism */
+    backdrop-filter: var(--backdrop-filter-15);
 }
 
-/* Image styles */
 .card img {
     width: 100%;
-    /* Full width for image */
     height: auto;
-    /* Auto height */
     padding: 10px;
-    /* Padding around the image */
 }
 
-/* Card content styles */
 .card-content {
     padding: 15px;
-    /* Padding inside card */
     flex: 1;
-    /* Allow the content to grow and fill the space */
     display: flex;
-    /* Enable flexbox for card content */
     flex-direction: column;
-    /* Stack elements vertically */
     justify-content: space-between;
-    /* Space out elements */
 }
 
 /* Title styles */
 .card h3 {
     margin: 10px 0;
-    /* Spacing around title */
 }
 
 /* Subtext styles */
 .card-subtext {
     margin: 10px 0;
-    /* Spacing around subtext */
     font-size: 14px;
-    /* Smaller font size for subtext */
 }
 
 /* Likes indicator styles */
 .likes {
     font-size: 14px;
-    /* Same size as subtext */
     color: #888;
-    /* Gray color for likes */
 }
 
 /* Button styles */
 .btn {
     background: #ff5722;
-    color: #fff;
+    color: var(--white);
     padding: 12px 24px;
-    /* Improved padding for better appearance */
     text-decoration: none;
     border-radius: 5px;
     display: inline-block;
     align-self: flex-end;
-    /* Align button to the right */
     transition: background 0.3s;
-    /* Smooth transition for hover effect */
 }
 
 .btn:hover {
     background: #e64a19;
-    /* Darker shade on hover */
+}
+
+
+
+/* Services Page */
+
+.services {
+    backdrop-filter: var(--backdrop-filter-15);
+}
+
+.service-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-img {
+    width: 45%;
+}
+
+.service-img img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid var(--white)
+}
+
+.service-content {
+    width: 48%;
+}
+
+.title {
+    font-size: 3em;
+    color: var(--primary-text);
+    -webkit-text-stroke: 1px var(--white);
+    font-weight: 800;
+    text-align: left;
+}
+
+.service-points {
+    color: var(--white);
+    margin-left: 20px;
+    font-size: 1.4em;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.service-points>li {
+    margin-bottom: 10px;
+}
+
+.choose-wrap {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+
+.choose-card {
+    width: 23%;
+    padding: 40px 20px 20px;
+    border-radius: 10px;
+    background: var(--background-glass-2);
+    backdrop-filter: var(--backdrop-filter-10);
+    height: fit-content;
+    text-align: left;
+}
+
+.choose-card:nth-child(even) {
+    margin-top: 50px;
+}
+
+.choose-icon {
+    color: var(--primary-text);
+    font-size: 2em;
+    -webkit-text-stroke: 1px var(--white);
+}
+
+.choose-desc {
+    color: var(--white);
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.footer {
+    background: var(--background-glass-2);
+    backdrop-filter: var(--backdrop-filter-10);
+    padding: 80px 20px;
+}
+
+.footer-wraper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.footer-part {
+    width: 30%;
+}
+
+.footer-logo {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--primary-text);
+    -webkit-text-stroke: 1px var(--white);
+}
+
+.footer-desc {
+    color: white;
+    margin-top: 20px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-title {
+    font-size: 2em;
+    color: var(--white);
+    margin: 8px 0 20px;
+    font-weight: 600;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 2.2em;
+    color: var(--white);
 }

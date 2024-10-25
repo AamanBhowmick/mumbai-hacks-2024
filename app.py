@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 import os
 
-cred = credentials.Certificate('./credential.json')  # Replace with your actual path
+cred = credentials.Certificate('./credential.json') 
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -16,10 +16,27 @@ users_ref = db.collection('Users')
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY') 
 
+@app.route("/layout")
+def layout():
+    user = session.get('user')
+    return render_template("layout.html", user = user)
+
 @app.route("/")
 def home():
     user = session.get('user')
     return render_template("index.html", user = user)
+
+@app.route("/about")
+def about():
+    user = session.get('user')
+    return render_template("about.html", user = user)
+
+
+
+
+
+
+# Authentication
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -32,8 +49,6 @@ def login():
         user_found = False
         for user in users:
             user_data = user.to_dict()
-            
-            # Use check_password_hash to verify hashed password
             if check_password_hash(user_data['password'], password):
                 user_found = True
                 session['user'] = user_data['email']
