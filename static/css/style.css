@@ -5,7 +5,9 @@
     --white-rgb: 255, 255, 255;
     --black-rgb: 18, 18, 18;
 
-    --primary-text: #ff6700;
+    --primary-text: #260656;
+
+    --button-color: #ff5722;
 
     --background-glass-1: rgba(255, 255, 255, 0.1);
     --background-glass-2: rgba(255, 255, 255, 0.2);
@@ -20,7 +22,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", serif;
     overflow-x: hidden;
 }
 
@@ -55,8 +57,11 @@ a {
 }
 
 .logo {
-    font-size: 24px;
     margin-right: auto;
+}
+
+.logo-img {
+    width: 300px;
 }
 
 .nav-menu {
@@ -136,6 +141,7 @@ a {
 .cont-second {
     background: none;
     padding: 20px;
+    backdrop-filter: none;
 }
 
 .cont-third {
@@ -168,7 +174,8 @@ a {
     font-size: 1.1em;
     color: var(--primary-text);
     font-weight: 800;
-    -webkit-text-stroke: 1px var(--white);
+    /* -webkit-text-stroke: 1px var(--white); */
+    text-shadow: 2px 2px var(--white);
 }
 
 .subtext {
@@ -340,7 +347,7 @@ section {
 
 /* Button styles */
 .btn {
-    background: #ff5722;
+    background: var(--button-color);
     color: var(--white);
     padding: 12px 24px;
     text-decoration: none;
@@ -360,6 +367,7 @@ section {
 
 .services {
     backdrop-filter: var(--backdrop-filter-15);
+    background: var(--background-glass-2);
 }
 
 .service-wrap {
@@ -386,11 +394,13 @@ section {
 }
 
 .title {
-    font-size: 3em;
+    font-size: 2.4em;
     color: var(--primary-text);
-    -webkit-text-stroke: 1px var(--white);
+    /* -webkit-text-stroke: 1px var(--white); */
+    text-shadow: 2px 2px var(--white);
     font-weight: 800;
     text-align: left;
+    text-transform: uppercase;
 }
 
 .service-points {
@@ -426,7 +436,7 @@ section {
 }
 
 .choose-icon {
-    color: var(--primary-text);
+    color: var(--button-color);
     font-size: 2em;
     -webkit-text-stroke: 1px var(--white);
 }
@@ -458,7 +468,8 @@ section {
     font-size: 2.5em;
     font-weight: 800;
     color: var(--primary-text);
-    -webkit-text-stroke: 1px var(--white);
+    /* -webkit-text-stroke: 1px var(--white); */
+    text-shadow: 2px 2px var(--white);
 }
 
 .footer-desc {

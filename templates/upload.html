@@ -1,145 +1,59 @@
-{% extends "layout.html" %} {% block body %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upload Your File</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/upload.css') }}"
-    />
-  </head>
-  <body>
-    <div class="container cont-upload" id="container-upload">
-      <header>
-        <section class="window--buttons">
-          <div class="window__close"></div>
-          <div class="window__minimize"></div>
-          <div class="window__maximize"></div>
-        </section>
-      </header>
-
-      <div class="content">
-        <div class="ideas">
-          <div class="idea">
-            <p>MASTER YOUR MAC</p>
-            <h1>
-              Make a great<br />
-              handoff
-            </h1>
-            <p>Work seamlessly across devices</p>
-          </div>
-
-          <div class="idea">
-            <p>GET STARTED</p>
-            <h1>Apps optimized for mac with M1</h1>
-            <p>Work seamlessly across devices</p>
-          </div>
+{% extends "layout.html" %} {% block css %} <link rel="stylesheet" href={{
+url_for('static', filename='css/upload.css') }} /> {% endblock css %} {% block
+body %}
+<div class="container upload-cont">
+  <p class="title">Upload your video here....</p>
+  <form action="" method="post">
+    <div class="drop-zone">
+      <span class="drop-zone__prompt">Drop file here or click to upload</span>
+      <input type="file" name="myFile" class="drop-zone__input" />
+    </div>
+    <div class="text-wrapper">
+      <div class="input-field">
+        <input type="text" required name="email" />
+        <label>Enter the name you want for your Video</label>
+      </div>
+      <div class="select-wrapper">
+        <select class="select-field" name="frame-rate">
+          <option selected value="0">Select Frame Rate</option>
+          <option value="200">200</option>
+          <option value="400">400</option>
+          <option value="600">600</option>
+          <option value="800">800</option>
+          <option value="1000">1000</option>
+          <option value="1200">1200</option>
+          <option value="1400">1400</option>
+          <option value="1600">1600</option>
+          <option value="1800">1800</option>
+          <option value="2000">2000</option>
+        </select>
+        <div class='c-filter'>
+          <button type="button" class='c-filter__toggle '>Filter</button>
+          <ul class='c-filter__ul'>
+            <li class='c-filter__item'><input type='checkbox' id='1'><label tabindex='-1' for='1'>Option 1</label></li>
+            <li class='c-filter__item'><input type='checkbox' id='2'><label tabindex='-1' for='2'>Option 2</label></li>
+            <li class='c-filter__item'><input type='checkbox' id='3'><label tabindex='-1' for='3'>Option 3</label></li>
+            <li class='c-filter__item'><input type='checkbox' id='4'><label tabindex='-1' for='4'>Option 4</label></li>
+            <li class='c-filter__item'><input type='checkbox' id='5'><label tabindex='-1' for='5'>Option 5</label></li>
+            <li class='c-filter__item'><input type='checkbox' id='6'><label tabindex='-1' for='6'>Option 6</label></li>
+            <li class='c-filter__item' ><input type='checkbox' id='7'><label tabindex='-1' for='7'>Option 7</label></li>
+            <li class='c-filter__item'><input type='checkbox' id='8'><label tabindex='-1' for='8'>Option 8</label></li>
+            <li class='c-filter__item'><input type='checkbox' id='9'><label tabindex='-1' for='9'>Option 9</label></li>
+            <li class='c-filter__item'><input type='checkbox' id='10'><label tabindex='-1'                for='10'>Option 10</label></li>
+          </ul>
+          
         </div>
-
-        <section class="updates">
-          <h1>Updates</h1>
-
-          <div class="update update-1">
-            <div class="updt-left">
-              <img
-                src="https://img.icons8.com/color/452/microsoft-powerpoint-2019.png"
-                alt="powerpoint icon"
-              />
-              <h1>Microsoft Powerpoint</h1>
-            </div>
-            <div class="buttons">
-              <a href="https://bit.ly/3gdGvT8" target="_warning">
-                <button>Update</button>
-              </a>
-            </div>
-          </div>
-
-          <div class="update">
-            <div class="updt-left">
-              <img
-                src="https://img.icons8.com/color/452/microsoft-word-2019--v2.png"
-                alt="word icon"
-              />
-              <h1>Microsoft Word</h1>
-            </div>
-            <div class="buttons">
-              <button style="color: lime; cursor: default">Updated</button>
-            </div>
-          </div>
-
-          <div class="update">
-            <div class="updt-left">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg/788px-Adobe_Photoshop_Lightroom_CC_logo.svg.png"
-                alt="lightroom icon"
-              />
-              <h1>Adobe Lightroom</h1>
-            </div>
-            <div class="buttons">
-              <a href="https://bit.ly/3gdGvT8" target="_warning">
-                <button>Update</button>
-              </a>
-            </div>
-          </div>
-
-          <div class="update">
-            <div class="updt-left">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/5/56/Xcode_14_icon.png"
-                alt="xcode icon"
-              />
-              <h1>Xcode</h1>
-            </div>
-            <div class="buttons">
-              <a href="https://bit.ly/3gdGvT8" target="_warning">
-                <button>Update</button>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section class="trending">
-          <h1>Trending</h1>
-          <div class="grid">
-            <span class="grid__app">
-              <h1>Kindle</h1>
-              <button>GET</button>
-            </span>
-            <span class="grid__app">
-              <h1>Slac</h1>
-              <button>GET</button>
-            </span>
-            <span class="grid__app">
-              <h1>Magnet</h1>
-              <button>₹699</button>
-            </span>
-            <span class="grid__app">
-              <h1>CotEditor</h1>
-              <button>GET</button>
-            </span>
-            <span class="grid__app margin">
-              <h1>Twitter</h1>
-              <button>GET</button>
-            </span>
-            <span class="grid__app margin">
-              <h1>Notability</h1>
-              <button>₹799</button>
-            </span>
-            <span class="grid__app margin">
-              <h1>NDTV</h1>
-              <button>GET</button>
-            </span>
-            <span class="grid__app margin">
-              <h1>Rummy</h1>
-              <button>₹179</button>
-            </span>
-          </div>
-        </section>
+          
+      </div>
+      <div class="submit-button">
+        <a class="upload-submit reset" href="/upload">Reset</a>
+        <button type="submit" class="upload-submit">Start Generating</button>
       </div>
     </div>
-  </body>
-</html>
+  </form>
+</div>
 
-{% endblock body %}
+{% endblock body %} {% block js %} 
+<script src={{
+url_for('static', filename='js/upload.js') }}></script>
+{% endblock js %}
