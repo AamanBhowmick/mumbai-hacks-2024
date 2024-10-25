@@ -57,8 +57,10 @@ def contactus():
     # user = session.get('user')
     return render_template("contact-us.html",)
 
-
-
+@app.route("/history")
+def history():
+    # user = session.get('user')
+    return render_template("history.html",)
 
 
 # Authentication
