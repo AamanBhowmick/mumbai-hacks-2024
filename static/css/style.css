@@ -5,14 +5,27 @@
     --white-rgb: 255, 255, 255;
     --black-rgb: 18, 18, 18;
 
-    --primary-text: #260656;
+    --primary-text: #00d8ff;
 
-    --button-color: #ff5722;
+    --button-color: #00d8ff;
+
+    --fire: #ff5722;
 
     --background-glass-1: rgba(255, 255, 255, 0.1);
     --background-glass-2: rgba(255, 255, 255, 0.2);
+    --background-glass-3: rgba(255, 255, 255, 0.3);
+    --background-glass-4: rgba(255, 255, 255, 0.4);
+    --background-glass-5: rgba(255, 255, 255, 0.5);
     --backdrop-filter-10: blur(10px);
     --backdrop-filter-15: blur(15px);
+
+    --background-glass-black-1: rgba(0, 0, 0, 0.1);
+    --background-glass-black-2: rgba(0, 0, 0, 0.2);
+    --background-glass-black-3: rgba(0, 0, 0, 0.3);
+    --background-glass-black-4: rgba(0, 0, 0, 0.4);
+    --background-glass-black-5: rgba(0, 0, 0, 0.5);
+    --background-glass-black-6: rgba(0, 0, 0, 0.6);
+    --background-glass-black-7: rgba(0, 0, 0, 0.7);
 }
 
 * {
@@ -175,7 +188,7 @@ a {
     color: var(--primary-text);
     font-weight: 800;
     /* -webkit-text-stroke: 1px var(--white); */
-    text-shadow: 2px 2px var(--white);
+    text-shadow: 2px 2px var(--black);
 }
 
 .subtext {
@@ -358,7 +371,7 @@ section {
 }
 
 .btn:hover {
-    background: #e64a19;
+    background: #006273;
 }
 
 /* Services Page */
@@ -395,7 +408,7 @@ section {
     font-size: 2.4em;
     color: var(--primary-text);
     /* -webkit-text-stroke: 1px var(--white); */
-    text-shadow: 2px 2px var(--white);
+    text-shadow: 2px 2px var(--black);
     font-weight: 800;
     text-align: left;
     text-transform: uppercase;
@@ -434,7 +447,7 @@ section {
 }
 
 .choose-icon {
-    color: var(--button-color);
+    color: var(--fire);
     font-size: 2em;
     -webkit-text-stroke: 1px var(--white);
 }
@@ -463,11 +476,10 @@ section {
 }
 
 .footer-logo {
-    font-size: 2.5em;
-    font-weight: 800;
-    color: var(--primary-text);
-    /* -webkit-text-stroke: 1px var(--white); */
-    text-shadow: 2px 2px var(--white);
+    display: flex;
+    background: var(--background-glass-black-5);
+    width: fit-content;
+    border-radius: 5px;
 }
 
 .footer-desc {
