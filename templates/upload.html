@@ -1,5 +1,10 @@
-{% extends "layout.html" %} {% block css %} <link rel="stylesheet" href={{
-url_for('static', filename='css/upload.css') }} /> {% endblock css %} {% block
+{% extends "layout.html" %} {% block css %}
+ <link rel="stylesheet" href={{
+url_for('static', filename='css/upload.css') }} /> 
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.3.0/introjs.min.css"
+/>{% endblock css %} {% block
 body %}
 <div class="container upload-cont">
   <p class="title">Upload your video here....</p>
@@ -57,6 +62,70 @@ body %}
   </form>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.3.0/intro.min.js"></script>
+{% if query == "search" %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Start the Intro.js tour
+    var intro = introJs();
+
+    // Configure options
+    intro.setOptions({
+      steps: [
+        {
+          intro:
+            "Welcome to our website! Here we redefine movie trailers with AI-generated content.",
+        },
+        {
+          element: document.querySelector(".title"),
+          intro: "Discover personalized trailers that cater to your taste.",
+        },
+        {
+          element: document.querySelector(".drop-zone"),
+          intro:
+            "You can drag and drop your video file here or click to upload.",
+        },
+        {
+          element: document.querySelector("input[name='email']"),
+          intro: "Enter a name for your video here.",
+        },
+        {
+          element: document.querySelector(".select-field"),
+          intro: "Select the frame rate for your video.",
+        },
+        {
+          element: document.querySelector(".time-duration"),
+          intro: "Specify the duration of your video here.",
+        },
+        {
+          element: ".submit-button",
+          intro:
+            "Once you're ready, click 'Start Generating' to upload your video.",
+        },
+        {
+          element: ".reset",
+          intro: "You can reset the form anytime if needed.",
+        },
+      ],
+      showButtons: true,
+      showProgress: true,
+      exitOnOverlayClick: false,
+      nextLabel: "Next",
+      prevLabel: "Previous",
+      skipLabel: "Skip",
+      doneLabel: "Done",
+    });
+
+    intro.onexit(function () {
+      // Optional: Trigger a click event on the Start Now button when the tour ends
+      // document.querySelector(".btn").click();
+    });
+
+    // Start the tour
+    intro.start();
+  });
+</script>
+{% endif %}
 {% endblock body %} {% block js %} 
 <script src={{
 url_for('static', filename='js/upload.js') }}></script>

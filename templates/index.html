@@ -1,5 +1,11 @@
 {% extends "layout.html" %} {% block body %}
 
+<!-- Include Intro.js CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.3.0/introjs.min.css"
+/>
+
 <!-- Landing Page -->
 <header class="header" id="home">
   <div class="container">
@@ -77,5 +83,78 @@
     </div>
   </div>
 </section>
+
+<!-- Include Intro.js JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.3.0/intro.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Check if the tour has already been completed
+    if (!sessionStorage.getItem("introCompleted")) {
+      // Start the Intro.js tour
+      var intro = introJs();
+
+      // Configure options
+      intro.setOptions({
+        steps: [
+          {
+            intro:
+              "Welcome to our website! Here we redefine movie trailers with AI-generated content.",
+          },
+          {
+            element: document.querySelector(".subtext"),
+            intro: "Discover personalized trailers that cater to your taste.",
+          },
+          {
+            element: document.querySelector(".btn"),
+            intro: "Click here to start creating your personalized trailers.",
+            position: "bottom",
+          },
+          {
+            element: ".service-wrap",
+            intro:
+              "Here are the services we provide to enhance your experience.",
+          },
+          {
+            element: ".choose-card",
+            intro: "This is a unique feature that sets us apart.",
+          },
+          {
+            element: ".title",
+            intro: "Learn why you should choose our services.",
+          },
+          {
+            element: document.querySelector(".btn"),
+            intro: "You can click this button to start now!",
+            position: "top",
+          },
+        ],
+        showButtons: true,
+        showProgress: true,
+        exitOnOverlayClick: false,
+        nextLabel: "Next",
+        prevLabel: "Previous",
+        skipLabel: "Skip",
+        doneLabel: "Done",
+      });
+
+      intro.onexit(function () {
+        // Set a flag in sessionStorage when the tour ends
+        sessionStorage.setItem("introCompleted", "true");
+
+        // Construct the URL based on the journey
+        const uploadUrl = "/upload?view=search"; // URL for the Intro.js journey
+        const currentUrl = document.querySelector(".btn").getAttribute("href"); // Original button URL
+
+        // Change the button URL based on whether the tour was completed
+        document.querySelector(".btn").setAttribute("href", uploadUrl);
+        document.querySelector(".btn").click(); // Trigger the click event
+        document.querySelector(".btn").setAttribute("href", currentUrl); // Reset URL
+      });
+
+      // Start the tour
+      intro.start();
+    }
+  });
+</script>
 
 {% endblock body %}
