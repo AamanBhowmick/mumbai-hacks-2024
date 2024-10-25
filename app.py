@@ -44,7 +44,9 @@ def upload():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return 'File successfully uploaded'
     
-    return render_template("upload.html")
+    query = request.args.get('view')
+    print(f"query {query}")
+    return render_template("upload.html",query = query)
 
 
 @app.route("/about")
