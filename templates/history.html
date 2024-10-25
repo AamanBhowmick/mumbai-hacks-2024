@@ -4,14 +4,13 @@
   href="{{ url_for('static', filename='css/history.css') }}"
 />
 {% endblock css %} {% block body %}
-<div class="container">
+<div class="container cont-history">
   <div class="headerHistory">
-    <h1>Generated Videos</h1>
+    <h1 class="title">Generated Videos</h1>
     <div class="filters">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">In Progress</button>
-      <button class="filter-btn">Queued</button>
-      <button class="filter-btn">Completed</button>
+      <p class="filter-btn">In Progress: 10</p>
+      <p class="filter-btn">Queued: 10</p>
+      <p class="filter-btn">Completed: 10</p>
     </div>
   </div>
 

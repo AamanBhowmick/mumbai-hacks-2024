@@ -23,7 +23,7 @@
   font-size: 20px;
   cursor: pointer;
   color: #cccccc;
-  border: 4px dashed var(--primary-text);
+  border: 4px dashed #260656;
   border-radius: 10px;
 }
 
@@ -104,6 +104,11 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+}
+
+.time-duration {
+  width: 48%;
+  margin-top: 15px;
 }
 
 .select-field {
