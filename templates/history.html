@@ -42,21 +42,22 @@
             <h3 class="video-title">{{video.name}}</h3>
             <div class="genre-tag">Genre: {{"/".join(video.genre)}}</div>
           </div>
-          {% if video.status == "In Progress" %}
+          {% if video.status == "In Progress" %} {% if video.eta == 0 %}
+          <span class="status-badge queued">
+            <span class="status-dot pulse"></span>
+            Queued
+          </span>
+          {% else %}
           <span class="status-badge pending">
             <span class="status-dot pulse"></span>
             {{video.status}}
           </span>
-          {% elif video.status == "Completed" %}
+          {% endif %} {% elif video.status == "Completed" %}
           <span class="status-badge completed">
             <span class="status-dot pulse"></span>
             {{video.status}}
           </span>
-          {% else %}
-          <span class="status-badge queued">
-            <span class="status-dot pulse"></span>
-            {{video.status}}
-          </span>
+
           {% endif %}
         </div>
         <div class="meta-info">
@@ -94,7 +95,7 @@
               />
             </svg>
             {% if video.eta == 0 %} ETA: --/-- {% else %} ETA: {{(video.eta |
-            int) // 60}} {% endif %}
+            int) // 60}} mins {% endif %}
           </span>
           {% if video.status == "Completed" %}
           <a

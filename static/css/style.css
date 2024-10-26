@@ -44,6 +44,13 @@ a {
     color: var(--white);
 }
 
+.flash-message {
+    position: fixed;
+    top: 40px;
+    right: 0;
+    z-index: 100000000;
+}
+
 /* Navbar styles */
 .navbar {
     background: var(--background-glass-1);

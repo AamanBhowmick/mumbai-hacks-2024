@@ -27,6 +27,10 @@
     {% block css %}{% endblock css %}
   </head>
   <body>
+    {% with messages = get_flashed_messages()%} {% if messages%} {% for message
+    in messages%}
+    <p class="flash-message">{{message}}</p>
+    {%endfor%} {%endif%} {%endwith%}
     <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-container">

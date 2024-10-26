@@ -1,6 +1,6 @@
 import os
 import torch
-from flask import Flask, request, render_template, send_from_directory, session, redirect, url_for
+from flask import Flask, request, render_template, send_from_directory, session, redirect, url_for, flash
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 import cv2
 from model import get_caption_model, generate_caption
@@ -322,6 +322,7 @@ def upload():
             # Add the processing task to the queue
             task_queue.put({'id': id, 'filepath': filepath, 'json_filepath': json_filepath, 'genre': data.getlist('genre'),'frame_skip_rate': int(data.get('frame-rate')), 'duration': duration * 60})
 
+            
             return redirect("/history")
     query = request.args.get("view")
     user = session.get('user')
