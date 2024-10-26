@@ -117,6 +117,10 @@
   justify-content: center;
 }
 
+.queued-overlay {
+  background: rgba(0, 0, 255, 0.2);
+}
+
 .loader {
   width: 40px;
   height: 40px;
@@ -193,10 +197,16 @@
   gap: 6px;
 }
 
-.status-badge.queued {
+.status-badge.error {
   background: rgba(239, 68, 68, 0.2);
   color: #ef4444;
   border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-badge.queued {
+  background: rgba(0, 0, 255, 0.1);
+  color: #6600ff;
+  border: 1px solid rgba(0, 0, 255, 0.4);
 }
 
 .status-badge.pending {

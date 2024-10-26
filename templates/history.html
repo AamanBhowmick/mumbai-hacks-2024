@@ -20,7 +20,7 @@
     <div class="video-item">
       <div class="thumbnail-container">
         <img
-          src="/api/placeholder/320/180"
+          src="{{ url_for('static', filename='images/video-gen.jpg') }}"
           alt="Video thumbnail"
           class="thumbnail"
         />
@@ -28,6 +28,8 @@
         <div class="progress-overlay">
           <div class="loader"></div>
         </div>
+        {% endif %} {% if video.status == "Queued"%}
+        <div class="progress-overlay queued-overlay"></div>
         {% endif %}
         <!-- <div class="progress-bar">
           <div class="progress" style="width: 45%"></div>
