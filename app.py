@@ -1,6 +1,6 @@
 import os
 import torch
-from flask import Flask, request, render_template, send_from_directory, session, redirect, url_for, flash
+from flask import Flask, request, render_template, send_from_directory, session, redirect, url_for, flash, send_file
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 import cv2
 from model import get_caption_model, generate_caption
@@ -104,14 +104,17 @@ UPLOAD_FOLDER = 'uploads'
 OUTPUT_FOLDER = 'output_trailers'
 JSON_UPLOAD_FOLDER = 'output_json'
 ALLOWED_EXTENSIONS = {'mp4', 'mov', 'avi'}
+THUMBNAIL_FOLDER = "static/images"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['OUTPUT_FOLDER'] = OUTPUT_FOLDER
 app.config['JSON_UPLOAD_FOLDER'] = JSON_UPLOAD_FOLDER
+app.config['THUMBNAIL_FOLDER'] = THUMBNAIL_FOLDER
 
 # Ensure upload and output directories exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 os.makedirs(JSON_UPLOAD_FOLDER, exist_ok=True)
+os.makedirs(THUMBNAIL_FOLDER, exist_ok=True)
 
 # Load YOLOv5 model for object detection (to help identify action sequences)
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
@@ -221,6 +224,18 @@ def classify_video_by_genres(id,filepath, json_filepath,genre, frame_skip_rate=1
         'Other': -threshold
     }
     frame_count = 0
+    video_possible = total_frame_count / frame_skip_rate
+    
+    if video_possible < 3:
+        video_capture.set(cv2.CAP_PROP_POS_FRAMES, video_possible)
+        ret, frame = video_capture.read()
+        thumbnail_path = os.path.join(app.config['THUMBNAIL_FOLDER'], f"{id}.jpg")
+        cv2.imwrite(thumbnail_path, frame)
+    else:
+        video_capture.set(cv2.CAP_PROP_POS_FRAMES, 3)
+        ret, frame = video_capture.read()
+        thumbnail_path = os.path.join(app.config['THUMBNAIL_FOLDER'], f"{id}.jpg")
+        cv2.imwrite(thumbnail_path, frame)
     
     while frame_count < total_frame_count:
         video_capture.set(cv2.CAP_PROP_POS_FRAMES, frame_count)
@@ -384,6 +399,12 @@ def register():
 def logout():
     session.pop('user', None)  
     return redirect('/login')
+
+@app.route("/get-video/<string:id>")
+def get_video(id):
+    video_path = os.path.join(app.config['OUTPUT_FOLDER'], f'{id}_trailer.mp4')
+    return send_file(video_path,mimetype="video/mp4")
+
 
 # Run the Flask app
 worker_thread = threading.Thread(target=background_worker, daemon=True)

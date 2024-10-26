@@ -19,12 +19,20 @@
     {% for video in video_lst %}
     <div class="video-item">
       <div class="thumbnail-container">
+        {% if video.status == "Completed" %}
+
+        <img
+          src="{{ url_for('static', filename='images/' + video.id + '.jpg') }}"
+          alt="Video thumbnail"
+          class="thumbnail"
+        />
+        {% else %}
         <img
           src="{{ url_for('static', filename='images/video-gen.jpg') }}"
           alt="Video thumbnail"
           class="thumbnail"
         />
-        {% if video.status == "In Progress"%}
+        {% endif %} {% if video.status == "In Progress"%}
         <div class="progress-overlay">
           <div class="loader"></div>
         </div>
@@ -98,17 +106,20 @@
             int) // 60}} mins {% endif %}
           </span>
           {% if video.status == "Completed" %}
-          <a
-            href="../output_trailers/{{video.id}}_trailer.mp4"
-            class="control-btn"
-            download="{{video.id}}_trailer.mp4"
-          >
-            <i class="fa-solid fa-download"></i>
-          </a>
+          <div class="after-completion">
+            <a
+              href="/get-video/{{video.id}}"
+              class="control-btn"
+              target="_blank"
+            >
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+          </div>
           {% endif %}
         </div>
       </div>
     </div>
+
     {% endfor %}
     <!-- Queued Video -->
     <!-- <div class="video-item">
@@ -239,6 +250,48 @@
         </div>
       </div>
     </div> -->
+    <div id="videoModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <video id="videoPreview" controls>
+          <source id="videoSource" src="" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
   </div>
 </div>
+
+<script>
+  // Function to open the modal and set the video source dynamically
+  function openModal(videoId) {
+    const videoSrc = `../output_trailers/${videoId}_trailer.mp4`;
+
+    const videoElement = document.getElementById("videoPreview");
+    const sourceElement = document.getElementById("videoSource");
+
+    // Set the source and load the video
+    sourceElement.src = videoSrc;
+    videoElement.load(); // This forces the video element to reload with the new source
+
+    // Show the modal
+    document.getElementById("videoModal").style.display = "block";
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    const videoElement = document.getElementById("videoPreview");
+    videoElement.pause(); // Pause the video when closing
+    videoElement.src = ""; // Clear the video source to stop it from playing in the background
+    document.getElementById("videoModal").style.display = "none";
+  }
+
+  // Close the modal when clicking outside of it
+  window.onclick = function (event) {
+    const modal = document.getElementById("videoModal");
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+</script>
 {% endblock body %}
