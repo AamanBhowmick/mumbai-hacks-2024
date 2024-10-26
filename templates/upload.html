@@ -8,13 +8,13 @@ url_for('static', filename='css/upload.css') }} />
 body %}
 <div class="container upload-cont">
   <p class="title">Upload your video here....</p>
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     <div class="drop-zone">
       <div class="drop-zone-wrapper">
         <i class="fa-solid fa-upload"></i>
         <span class="drop-zone__prompt">Drop file here or click to upload</span>
       </div>
-      <input type="file" name="myFile" class="drop-zone__input" />
+      <input type="file" name="file" class="drop-zone__input" />
     </div>
     <div class="text-wrapper">
       <div class="input-field">
@@ -38,16 +38,10 @@ body %}
         <div class='c-filter'>
           <button type="button" class='c-filter__toggle '>Filter</button>
           <ul class='c-filter__ul'>
-            <li class='c-filter__item'><input type='checkbox' id='1'><label tabindex='-1' for='1'>Option 1</label></li>
-            <li class='c-filter__item'><input type='checkbox' id='2'><label tabindex='-1' for='2'>Option 2</label></li>
-            <li class='c-filter__item'><input type='checkbox' id='3'><label tabindex='-1' for='3'>Option 3</label></li>
-            <li class='c-filter__item'><input type='checkbox' id='4'><label tabindex='-1' for='4'>Option 4</label></li>
-            <li class='c-filter__item'><input type='checkbox' id='5'><label tabindex='-1' for='5'>Option 5</label></li>
-            <li class='c-filter__item'><input type='checkbox' id='6'><label tabindex='-1' for='6'>Option 6</label></li>
-            <li class='c-filter__item' ><input type='checkbox' id='7'><label tabindex='-1' for='7'>Option 7</label></li>
-            <li class='c-filter__item'><input type='checkbox' id='8'><label tabindex='-1' for='8'>Option 8</label></li>
-            <li class='c-filter__item'><input type='checkbox' id='9'><label tabindex='-1' for='9'>Option 9</label></li>
-            <li class='c-filter__item'><input type='checkbox' id='10'><label tabindex='-1'                for='10'>Option 10</label></li>
+            <li class='c-filter__item'><input type='checkbox' name="genre" id='1' value="Action"><label tabindex='-1' for='1'>Action</label></li>
+            <li class='c-filter__item'><input type='checkbox' name="genre" id='2' value="Drama"><label tabindex='-1' for='2'>Drama</label></li>
+            <li class='c-filter__item'><input type='checkbox' name="genre" id='3' value="Romance"><label tabindex='-1' for='3'>Romance</label></li>
+            <li class='c-filter__item'><input type='checkbox' name="genre" id='4' value="Other"><label tabindex='-1' for='4'>Other</label></li>
           </ul>
         </div>
       </div>

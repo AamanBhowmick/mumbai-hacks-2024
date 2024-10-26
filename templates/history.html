@@ -16,6 +16,7 @@
 
   <div class="video-list">
     <!-- In Progress Video -->
+    {% for video in video_lst %}
     <div class="video-item">
       <div class="thumbnail-container">
         <img
@@ -23,24 +24,38 @@
           alt="Video thumbnail"
           class="thumbnail"
         />
+        {% if video.status == "In Progress"%}
         <div class="progress-overlay">
           <div class="loader"></div>
         </div>
-        <div class="progress-bar">
+        {% endif %}
+        <!-- <div class="progress-bar">
           <div class="progress" style="width: 45%"></div>
-        </div>
+        </div> -->
       </div>
 
       <div class="video-info">
         <div class="video-header">
           <div>
-            <h3 class="video-title">Inception-Style Marvel Universe Trailer</h3>
-            <div class="genre-tag">Genre: Sci-fi Thriller</div>
+            <h3 class="video-title">{{video.name}}</h3>
+            <div class="genre-tag">Genre: {{"/".join(video.genre)}}</div>
           </div>
+          {% if video.status == "In Progress" %}
           <span class="status-badge pending">
             <span class="status-dot pulse"></span>
-            In Progress
+            {{video.status}}
           </span>
+          {% elif video.status == "Completed" %}
+          <span class="status-badge completed">
+            <span class="status-dot pulse"></span>
+            {{video.status}}
+          </span>
+          {% else %}
+          <span class="status-badge queued">
+            <span class="status-dot pulse"></span>
+            {{video.status}}
+          </span>
+          {% endif %}
         </div>
         <div class="meta-info">
           <span class="meta-item">
@@ -58,7 +73,8 @@
                 d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            Duration: 2:30
+            {% if video.duration == "" %} Duration: --/-- {% else %} Duration:
+            {{(video.duration | int) // 60 }} {% endif %}
           </span>
           <span class="eta">
             <svg
@@ -75,30 +91,24 @@
                 d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            ETA: 15 minutes
+            {% if video.eta == 0 %} ETA: --/-- {% else %} ETA: {{(video.eta |
+            int) // 60}} {% endif %}
           </span>
-          <button class="control-btn">
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </button>
+          {% if video.status == "Completed" %}
+          <a
+            href="../output_trailers/{{video.id}}_trailer.mp4"
+            class="control-btn"
+            download="{{video.id}}_trailer.mp4"
+          >
+            <i class="fa-solid fa-download"></i>
+          </a>
+          {% endif %}
         </div>
       </div>
     </div>
-
+    {% endfor %}
     <!-- Queued Video -->
-    <div class="video-item">
+    <!-- <div class="video-item">
       <div class="thumbnail-container">
         <img
           src="/api/placeholder/320/180"
@@ -157,10 +167,10 @@
           </span>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Completed Video -->
-    <div class="video-item">
+    <!-- <div class="video-item">
       <div class="thumbnail-container">
         <img
           src="/api/placeholder/320/180"
@@ -225,7 +235,7 @@
           </span>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 {% endblock body %}
