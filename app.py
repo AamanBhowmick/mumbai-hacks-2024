@@ -169,9 +169,9 @@ def generate_trailer(id, filepath, clips, demographic, target_duration):
         # Save the generated trailer
         output_file = os.path.join(app.config['OUTPUT_FOLDER'], f'{id}_trailer.mp4')
         final_trailer.write_videofile(output_file, codec="libx264")
-        video = VideoFileClip(output_file)
-        duration = video.duration
-        videos.update_one({'id': id}, {'$set': {'status': "Completed",'eta':'00:00','duration':duration}})
+        # video = VideoFileClip(output_file)
+        # duration = video.duration
+        videos.update_one({'id': id}, {'$set': {'status': "Completed",'eta':'00:00','duration':3*60}})
         print(f"Generated trailer saved to: {output_file}")
     else:
         print("No clips were selected.")

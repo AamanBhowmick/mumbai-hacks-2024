@@ -434,6 +434,7 @@ section {
 
 .choose-card {
     width: 23%;
+    min-height: 410px;
     padding: 40px 20px 20px;
     border-radius: 10px;
     background: var(--background-glass-2);
